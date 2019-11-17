@@ -1,0 +1,9 @@
+pytorch
+torchvision
+matplotlib
+opencv
+pillow
+scikit-learn
+scikit-image
+Flask==1.0.3
+connexion

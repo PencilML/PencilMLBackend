@@ -1,0 +1,48 @@
+swagger: "2.0"
+info:
+  description: PencilMLBackend
+  version: "1.0.0"
+  title: PencilMLBackend
+basePath: "/"
+
+# Paths supported by the server application
+paths:
+  /ping:
+    get:
+      tags:
+        - "PingController"
+      operationId: "web.routes.ping"
+      responses:
+        200:
+          description: "Ping"
+          schema:
+            type: "string"
+  /dextr:
+    post:
+      tags:
+        - "AnalyticsController"
+      operationId: "web.routes.dextr_algorithm"
+      consumes:
+        - "multipart/form-data"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "image"
+          in: "formData"
+          description: "image to upload"
+          required: true
+          type: file
+        - name: "extremePoints"
+          in: "formData"
+          description: "extreme points array. Example: [[28, 205],[42, 209],[43, 187],[69, 193]]"
+          required: true
+          type: "string"
+      responses:
+        200:
+          description: "Execute DEXTR algorithm on the image. Returns bit mask"
+          schema:
+            type: array
+            items:
+              type: array
+              items:
+                type: boolean
