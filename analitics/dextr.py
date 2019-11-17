@@ -7,7 +7,7 @@ from torch.nn.functional import upsample
 
 from analitics import resnet, helpers
 from analitics.config import MODELS_DIR, USE_GPU, MODEL_NAME, GPU_ID, PAD, THRESHOLD
-from analitics.helpers import make_masks_image
+from analitics.helpers import make_masks_image, add_mask_to_the_image
 
 if USE_GPU:
     device = torch.device("cuda:" + str(GPU_ID) if torch.cuda.is_available() else "cpu")
@@ -57,7 +57,7 @@ def find_dextr_bit_mask(image_file, extreme_points_double_array):
     # Make the mask result
     bit_mask_array = helpers.crop2fullmask(pred, bbox, im_size=image.shape[:2], zero_pad=True, relax=PAD) > THRESHOLD
     bit_mask_image = make_masks_image([bit_mask_array])
-    image_with_bit_mask = ""
+    image_with_bit_mask = add_mask_to_the_image(image_file, bit_mask_image)
 
     return DextrAlgorithmResult(
         bit_mask_array=bit_mask_array,

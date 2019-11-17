@@ -353,3 +353,9 @@ def make_masks_image(results):
     mask_image = Image.fromarray(mask.astype(np.uint8))
     mask_image.putpalette(list(color_map(80).flatten()))
     return mask_image
+
+
+def add_mask_to_the_image(image, mask):
+    image_with_mask = image.copy()
+    image_with_mask.paste(mask, (0, 0), Image.fromarray(np.array(mask) > 0))
+    return image_with_mask
