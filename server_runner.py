@@ -2,7 +2,7 @@ from web.app import app
 
 
 def main():
-    print("Starting web server on localhost and port 8080...")
+    print("Starting web server on port 8080...")
     app.run(port=8080)
 
 
