@@ -14,8 +14,7 @@ ENV PENCIL_ML_WEB_DEXTR_IMAGE_UPLOAD_FOLDER /opt/PencilMLBackend/web/upload
 # install deps
 RUN conda install --yes --freeze-installed \
     --channel pytorch --channel anaconda --channel conda-forge \
-    nomkl \
-    torchvision \
+    pytorch torchvision \
     matplotlib opencv pillow scikit-learn scikit-image \
     flask==1.0.3 connexion \
     && conda clean -afy \
