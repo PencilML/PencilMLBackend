@@ -6,6 +6,7 @@ RUN git clone https://github.com/PencilML/PencilMLBackend.git /opt/PencilMLBacke
 # setup analitics
 ENV PENCIL_ML_ANALYTICS_MODELS_DIR /opt/PencilMLBackend/analitics/models
 ENV PENCIL_ML_ANALYTICS_MODEL_NAME dextr_pascal-sbd
+ENV PENCIL_ML_ANALYTICS_USE_GPU false
 ADD dextr_pascal-sbd.pth /opt/PencilMLBackend/analitics/models
 
 # setup web
