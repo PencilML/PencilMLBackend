@@ -10,7 +10,7 @@ from analitics.config import MODELS_DIR, USE_GPU, MODEL_NAME, GPU_ID, PAD, THRES
 from analitics.helpers import make_masks_image, add_mask_to_the_image
 
 if USE_GPU:
-    print(f"Try to use GPU with id ${GPU_ID}")
+    print(f"Try to use GPU with id {GPU_ID}")
     device = torch.device("cuda:" + str(GPU_ID) if torch.cuda.is_available() else "cpu")
 else:
     print(f"Use CPU")
