@@ -202,4 +202,4 @@ images/dextr-results/*
 
 # dcoker files ignore
 docker/deploy_key
-docker/*.pth
+docker/**/*.pth
