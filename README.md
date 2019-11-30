@@ -19,4 +19,5 @@ Runner: server.py
 ## Docker
 
 https://hub.docker.com/r/scrat98/pencil-ml-backend  
-docker run -dit -p 8080:8080 scrat98/pencil-ml-backend
+docker run -dit -p 8080:8080 scrat98/pencil-ml-backend  
+You have to allocate minimum 4gb of Ram!
