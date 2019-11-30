@@ -15,3 +15,8 @@ Runner: dextr_runner.py
 
 Runner: server.py  
 127.0.0.1:8080/swagger-ui
+
+## Docker
+
+https://hub.docker.com/r/scrat98/pencil-ml-backend  
+docker run -dit -p 8080:8080 scrat98/pencil-ml-backend
