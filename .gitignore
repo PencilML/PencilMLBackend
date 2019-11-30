@@ -199,3 +199,7 @@ fabric.properties
 analitics/models/*.pth
 web/upload/*
 images/dextr-results/*
+
+# dcoker files ignore
+docker/deploy_key
+docker/*.pth
