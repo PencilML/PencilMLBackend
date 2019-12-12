@@ -2,6 +2,7 @@ import json
 import os
 from datetime import datetime
 
+import numpy as np
 from PIL import Image
 from flask import jsonify
 from flask import request
@@ -18,8 +19,26 @@ def ping():
     return "Pong"
 
 
-@app.route('/dextr', methods=['POST'])
-def dextr_algorithm():
+@app.route('/dextr-grayscale', methods=['POST'])
+def dextr_algorithm_from_grayscale():
+    data = json.loads(request.data)
+    grayscale = data["grayscale"]
+    extreme_points = data["extremePoints"]
+
+    filename = f"grayscale_{datetime.utcnow().timestamp()}"
+    file_path = os.path.join(DEXTR_IMAGE_UPLOAD_FOLDER, filename)
+    img = Image.fromarray(np.array(grayscale, dtype=np.uint8), "L").convert("RGB")
+    img.save(f"{file_path}.jpg")
+
+    dextr_result = find_dextr_bit_mask(img, extreme_points)
+    dextr_result.bit_mask_image.save(f"{file_path}_bit_mask_only.png")
+    dextr_result.image_with_bit_mask.save(f"{file_path}_image_with_bit_mask.png")
+
+    return jsonify(dextr_result.bit_mask_array.tolist())
+
+
+@app.route('/dextr-image', methods=['POST'])
+def dextr_algorithm_from_image():
     def allowed_file(filename):
         return '.' in filename and \
                filename.rsplit('.', 1)[1].lower() in DEXTR_IMAGE_ALLOWED_EXTENSIONS
@@ -54,7 +73,7 @@ def dextr_algorithm():
     image_file = get_image_from_request()
     extreme_points = get_extreme_points_from_request()
 
-    filename = f"{secure_filename(image_file.filename)}_{datetime.utcnow().timestamp()}"
+    filename = f"{datetime.utcnow().timestamp()}_{secure_filename(image_file.filename)}"
     file_path = os.path.join(DEXTR_IMAGE_UPLOAD_FOLDER, filename)
     image_file.save(file_path)
 

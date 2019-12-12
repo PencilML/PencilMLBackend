@@ -17,11 +17,11 @@ paths:
           description: "Ping"
           schema:
             type: "string"
-  /dextr:
+  /dextr-image:
     post:
       tags:
         - "AnalyticsController"
-      operationId: "web.routes.dextr_algorithm"
+      operationId: "web.routes.dextr_algorithm_from_image"
       consumes:
         - "multipart/form-data"
       produces:
@@ -40,6 +40,43 @@ paths:
       responses:
         200:
           description: "Execute DEXTR algorithm on the image. Returns bit mask"
+          schema:
+            type: array
+            items:
+              type: array
+              items:
+                type: boolean
+  /dextr-grayscale:
+    post:
+      tags:
+        - "AnalyticsController"
+      operationId: "web.routes.dextr_algorithm_from_grayscale"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "params"
+          in: "body"
+          required: true
+          schema:
+            type: "object"
+            properties:
+              grayscale:
+                type: array
+                items:
+                  type: array
+                  items:
+                    type: integer
+              extremePoints:
+                type: array
+                items:
+                  type: array
+                  items:
+                    type: integer
+      responses:
+        200:
+          description: "Execute DEXTR algorithm on the grayscale array. Returns bit mask"
           schema:
             type: array
             items:
