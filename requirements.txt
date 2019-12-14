@@ -6,4 +6,5 @@ pillow
 scikit-learn
 scikit-image
 Flask==1.0.3
+flask-cors
 connexion
