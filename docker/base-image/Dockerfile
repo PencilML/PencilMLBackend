@@ -9,4 +9,5 @@ RUN conda install --yes --freeze-installed \
     && conda clean -afy \
     && find /opt/conda/ -follow -type f -name '*.a' -delete \
     && find /opt/conda/ -follow -type f -name '*.pyc' -delete \
-    && find /opt/conda/ -follow -type f -name '*.js.map' -delete
+    && find /opt/conda/ -follow -type f -name '*.js.map' -delete \
+    && apt install curl
