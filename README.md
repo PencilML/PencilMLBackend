@@ -30,3 +30,6 @@ image - steps to install PencilMLBackends
 https://hub.docker.com/r/scrat98/pencil-ml-backend  
 docker run -dit -p 8080:8080 scrat98/pencil-ml-backend  
 You have to allocate minimum 4gb of Ram!
+
+# References
+This repo with made with using of https://github.com/scaelles/DEXTR-PyTorch
