@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+  app:
+    build:
+      context: .
+      target: dev
+    image: pencil-ml-backend
+    command: conda run python -m backend
+    volumes: 
+      - '.:/opt/PencilMLBackend'
+      - './tests/data:/var/opt/data'
+    ports:
+      - '8080:8080'
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+    environment: 
+      ## Relative path to models directory
+      PENCIL_ML_ANALYTICS_MODELS_DIR: /var/opt/data/models
+      ## Name of the model used
+      PENCIL_ML_ANALYTICS_MODEL_NAME: dextr_pascal-sbd
+      ## Relative path to image upload directory
+      PENCIL_ML_WEB_DEXTR_IMAGE_UPLOAD_FOLDER: /var/opt/data/upload

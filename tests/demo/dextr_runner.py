@@ -2,7 +2,7 @@ import os
 
 from PIL import Image
 
-from analitics.dextr import find_dextr_bit_mask
+from backend.analytics.dextr import find_dextr_bit_mask
 
 
 def main():

@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  backend:
+    image: docker.pkg.github.com/enjoy-the-science/pencilmlbackend/pencil-ml-backend:latest
+    command: conda run python -m backend
+    volumes: 
+      - '/var/opt/data/backend:/var/opt/data'
+    ports:
+      - '8080:8080'
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+    environment: 
+      PENCIL_ML_ANALYTICS_MODELS_DIR: /var/opt/data/models
+      PENCIL_ML_ANALYTICS_MODEL_NAME: dextr_pascal-sbd
+      PENCIL_ML_WEB_DEXTR_IMAGE_UPLOAD_FOLDER: /var/opt/data/upload

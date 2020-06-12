@@ -8,10 +8,10 @@ from flask import jsonify
 from flask import request
 from werkzeug.utils import secure_filename
 
-from analitics.dextr import find_dextr_bit_mask
-from web.app import app
-from web.config import DEXTR_IMAGE_UPLOAD_FOLDER, DEXTR_IMAGE_ALLOWED_EXTENSIONS
-from web.exceptions import BadRequest
+from backend.analytics.dextr import find_dextr_bit_mask
+from .app import app
+from .config import DEXTR_IMAGE_UPLOAD_FOLDER, DEXTR_IMAGE_ALLOWED_EXTENSIONS
+from .exceptions import BadRequest
 
 
 @app.route('/ping', methods=['GET', 'POST'])

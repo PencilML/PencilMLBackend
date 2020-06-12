@@ -2,7 +2,7 @@ import connexion
 from flask_cors import CORS
 
 # Create the application instance
-from web.exceptions import HttpErrorBaseException
+from .exceptions import HttpErrorBaseException
 
 app = connexion.FlaskApp(__name__, specification_dir='./')
 app.add_api('swagger.yml', options={

@@ -11,7 +11,7 @@ paths:
     get:
       tags:
         - "PingController"
-      operationId: "web.routes.ping"
+      operationId: "backend.web.routes.ping"
       responses:
         200:
           description: "Ping"
@@ -21,7 +21,7 @@ paths:
     post:
       tags:
         - "AnalyticsController"
-      operationId: "web.routes.dextr_algorithm_from_image"
+      operationId: "backend.web.routes.dextr_algorithm_from_image"
       consumes:
         - "multipart/form-data"
       produces:
@@ -50,7 +50,7 @@ paths:
     post:
       tags:
         - "AnalyticsController"
-      operationId: "web.routes.dextr_algorithm_from_grayscale"
+      operationId: "backend.web.routes.dextr_algorithm_from_grayscale"
       consumes:
         - "application/json"
       produces:

@@ -1,0 +1,4 @@
+pytest-black
+pytest-isort
+pytest-flake8
+pytest-mypy

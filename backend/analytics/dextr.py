@@ -5,9 +5,9 @@ import torch
 from PIL import Image
 from torch.nn.functional import upsample
 
-from analitics import resnet, helpers
-from analitics.config import MODELS_DIR, USE_GPU, MODEL_NAME, GPU_ID, PAD, THRESHOLD
-from analitics.helpers import make_masks_image, add_mask_to_the_image
+from . import resnet, helpers
+from .config import MODELS_DIR, USE_GPU, MODEL_NAME, GPU_ID, PAD, THRESHOLD
+from .helpers import make_masks_image, add_mask_to_the_image
 
 if USE_GPU:
     print(f"Try to use GPU with id {GPU_ID}")

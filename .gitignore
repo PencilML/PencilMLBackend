@@ -99,7 +99,6 @@ celerybeat-schedule
 *.sage.py
 
 # Environments
-.env
 .venv
 env/
 venv/
@@ -203,3 +202,6 @@ images/dextr-results/*
 # dcoker files ignore
 docker/deploy_key
 docker/**/*.pth
+
+# models
+tests/data/models/**

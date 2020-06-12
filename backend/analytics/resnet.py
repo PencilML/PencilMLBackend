@@ -6,7 +6,7 @@ import torch
 import torch.nn as nn
 from torch.nn import functional as F
 
-from analitics.config import MODELS_DIR
+from .config import MODELS_DIR
 
 affine_par = True
 

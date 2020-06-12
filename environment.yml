@@ -1,0 +1,23 @@
+name: base
+
+channels:
+  - anaconda
+  - conda-forge
+  - defaults
+  - pytorch
+
+dependencies:
+  ## Base deps, already present in base image
+  - python==3.7
+  - connexion==2.6.0
+  - flask
+  - flask-cors
+  - matplotlib
+  - opencv
+  - pillow
+  - pytorch
+  - scikit-image
+  - scikit-learn
+  - torchvision
+  ## Dev deps
+  - pytest
